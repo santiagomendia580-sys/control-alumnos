@@ -1,11 +1,10 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border- box;
+    box-sizing: border-box; 
 }
 
-
- body{  
+body {  
     font-family: 'Poppins', sans-serif;
     background-color: rgb(236, 241, 241);
     display: flex;
@@ -13,38 +12,41 @@
     align-items: center;
     height: 100vh;
 }
-.contenedor{
-width: 90%;
-max-width: 400%;
-background-color: rgb(215, 234, 234);
-border-radius: 20%;
-padding: 40%;
-text-align: center;
-box-shadow:  0 opx 15px rgba rgb(226, 214, 214)
+
+.contenedor {
+    width: 90%;
+    max-width: 400px; 
+    background-color: rgb(215, 234, 234);
+    border-radius: 20px; 
+    padding: 30px; 
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-h1{
-  color: black; 
-  margin-bottom: 15px;
+h1 {
+    color: black; 
+    margin-bottom: 15px;
 }
  
-p{
-color: cadetblue;
-margin-bottom: 30px;
+p {
+    color: cadetblue;
+    margin-bottom: 30px;
 }
 
-.button{
-  width: 100%;  
-  padding: 15%;
-  border: none;
-  border-radius: 5px;
-  background-color: aquamarine;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-   }
+.button {
+    width: 100%;  
+    padding: 12px; 
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /
+}
 
 .button:hover {
-    color: rgb(222, 225, 220);
-     margin-bottom: 16px;
-   }
+    background-color: #7ce7c9; /* Cambia el fondo en el hover para notar el cambio */
+    color: rgb(50, 50, 50);
+    /* Eliminamara que el botón no se mueva bruscamente al pasar el mouse */
+}
