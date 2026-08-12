@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,15 +9,125 @@
 </head>
 <body>
 
-    <div class="contenedor"> 
-        
-        <h1>Control de Alumnos</h1> 
-        <h1>Iniciar sesión al sistema escolar</h1>
-        <input type="text" id="usuario" placeholder="Usuario">
-        <input type="password" id="contraseña" placeholder="Contraseña">
-        <button type="button" id="btnEntrar">Iniciar sesión</button>
-        
+    <!-- PANTALLA DE LOGIN -->
+    <div id="loginContainer" class="contenedor">
+        <div class="logo-container">
+            <img src="img/logo.utm.jpg" alt="Logo Universidad" class="nav-logo" style="height: 100px; margin-bottom: 15px;">
+        </div>
+        <h1>Control de Alumnos</h1>
+        <h2>Iniciar sesión al sistema escolar</h2>
+        <input type="text" id="usuario" placeholder="Usuario" class="input-field">
+        <input type="password" id="contraseña" placeholder="Contraseña" class="input-field">
+        <button type="button" id="btnEntrar" class="button">Iniciar sesión</button>
+        <p id="loginError" class="error-message" style="display: none;"></p>
     </div>
-    <script src="scrip.js"></script>
+
+    <!-- DASHBOARD PRINCIPAL -->
+    <div id="dashboardContainer" style="display: none; width: 100%;">
+        
+        <!-- ENCABEZADO Y NAVEGACIÓN DUAL -->
+        <header class="header-principal">
+            
+            <!-- TÍTULO Y LOGO PRINCIPAL -->
+            <div class="logo-titulo">
+                <img src="img/logo.utm.jpg" alt="Logo UT" class="nav-logo desktop-only">
+                <h1>Sistema de Control de Alumnos</h1>
+            </div>
+            
+            <!-- NAVEGACIÓN Y USUARIO PARA LAPTOP/DESKTOP -->
+            <div class="sub-bar desktop-only">
+                <div class="menu-pestanas">
+                    <button class="menu-btn active" data-view="listar">Ver Alumnos</button>
+                    <button class="menu-btn" data-view="agregar">Agregar Alumno</button>
+                </div>
+                
+                <div class="user-info-bar">
+                    <span id="usuarioActualNav" class="usuario-info">Usuario: Admin</span>
+                    <button id="btnCerrarSesionDesktop" class="button button-logout">Cerrar sesión</button>
+                </div>
+            </div>
+
+            <!-- FILA SECUNDARIA SOLO PARA MÓVIL (Logo e Icono Hamburguesa) -->
+            <div class="nav-bar-mobile mobile-only">
+                <img src="img/logo.utm.jpg" alt="Logo UT" class="nav-logo">
+                <button type="button" id="hamburgerBtn" class="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </header>
+
+        <!-- MENÚ LATERAL DESPLEGABLE (Exclusivo para Móvil) -->
+        <aside class="sidebar mobile-only" id="sidebarMenu">
+            <div class="user-profile-mobile">
+                <span id="usuarioActual" class="usuario-info">Usuario: Admin</span>
+            </div>
+            <ul class="menu">
+                <li><button class="menu-btn active" data-view="listar">Ver Alumnos</button></li>
+                <li><button class="menu-btn" data-view="agregar">Agregar Alumno</button></li>
+            </ul>
+            <button id="btnCerrarSesionMobile" class="button button-logout">Cerrar sesión</button>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- VISTA: LISTAR ALUMNOS -->
+            <div id="viewListar" class="view-section active">
+                <h2>Lista de Alumnos</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Buscar alumno..." class="input-field">
+                </div>
+                <div id="alumnosList" class="alumnos-list">
+                    <p class="loading">Cargando alumnos...</p>
+                </div>
+            </div>
+
+            <!-- VISTA: AGREGAR/EDITAR ALUMNO -->
+            <div id="viewAgregar" class="view-section">
+                <h2 id="formTitle">Agregar Nuevo Alumno</h2>
+                <form id="formAlumno" class="form-alumno">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" placeholder="Apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="ejemplo@escuela.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grado">Grado:</label>
+                        <input type="text" id="grado" placeholder="Ej: 9 TI" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricula">Matrícula:</label>
+                        <input type="text" id="matricula" placeholder="Número de matrícula" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="button">Guardar Alumno</button>
+                        <button type="button" id="btnCancelar" class="button button-secondary">Cancelar</button>
+                    </div>
+                </form>
+                <p id="formMessage" class="form-message" style="display: none;"></p>
+            </div>
+            
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="module" src="js/firebase.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
